@@ -1,5 +1,7 @@
 # morajabi.me
-My personal website
+My personal website.
+Find me on [Twitter](https://twitter.com/morajabi) • [LinkedIn]() • [Hire Me](https://angel.co/morajabi)
+
 
 ## What is this?
 It's a Single Page app for my personal resume & portfolio website.
