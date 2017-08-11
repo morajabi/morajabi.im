@@ -1,6 +1,6 @@
 # morajabi.me
 My personal website.
-Find me on [Twitter](https://twitter.com/morajabi) • [LinkedIn]() • [Hire Me](https://angel.co/morajabi)
+Find me on [Twitter](https://twitter.com/morajabi) • [LinkedIn](https://www.linkedin.com/in/morajabi/) • [Hire Me](https://angel.co/morajabi)
 
 
 ## What is this?
