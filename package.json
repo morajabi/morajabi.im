@@ -5,6 +5,11 @@
   "repository": "git@github.com:morajabi/morajabi.me.git",
   "author": "Mohammad <hi@morajabi.me> (http://morajabi.me/)",
   "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
     "next": "^3.0.3",
     "react": "^15.6.1",
