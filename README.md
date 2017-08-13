@@ -10,7 +10,7 @@ It's a Single Page app for my personal resume & portfolio website.
 #### Technologies
 - Javascript ES6/7 with Babel
 - React
-- Next.js
+- Next.js *(With static export - v3)*
 - Webpack
 
 #### Tools
