@@ -1,0 +1,8 @@
+{
+  "name": "morajabi.me",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:morajabi/morajabi.me.git",
+  "author": "Mohammad <hi@morajabi.me> (http://morajabi.me/)",
+  "license": "MIT"
+}
