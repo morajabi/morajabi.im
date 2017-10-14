@@ -49,7 +49,7 @@ export default () => (
   <Wrapper>
     <Side>
       <Tags>
-        <TagWrapper><Tag>ruby</Tag></TagWrapper>
+        <TagWrapper><Tag active>ruby</Tag></TagWrapper>
         <TagWrapper><Tag>js</Tag></TagWrapper>
         <TagWrapper><Tag>design</Tag></TagWrapper>
       </Tags>

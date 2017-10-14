@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import rem from 'utils/rem'
 import { mostlyBlack } from 'utils/colors'
@@ -15,18 +15,32 @@ const Tag = styled.a`
 
   &:before {
     content: '#';
-    color: #c0c0c0;
+    opacity: 0.4;
     margin-right: ${rem(2)};
-  }
-
-  &:hover,
-  &:focus {
-    background: #e0e0e0;
   }
 
   &:focus {
     outline: 2px solid #888;
   }
+
+  ${props => props.active ? css`
+    color: #fff;
+    background: blue;
+
+    &:before {
+      opacity: 0.7;
+    }
+
+    &:hover,
+    &:focus {
+      background: darkBlue;
+    }
+  `: css`
+    &:hover,
+    &:focus {
+      background: #e0e0e0;
+    }
+  `}
 `
 
 export default Tag
