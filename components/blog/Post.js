@@ -6,15 +6,22 @@ import { headerFont } from 'utils/fonts'
 import { mostlyBlack } from 'utils/colors'
 
 const Wrapper = styled.a`
-  display: block;
   padding: ${rem(20)} ${rem(30)};
+  display: block;
+  box-sizing: border-box;
+
   text-decoration: none;
   background: transparent;
   color: ${mostlyBlack};
   transition: background 100ms ease-out;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: rgba(0, 0, 0, 0.04);
+  }
+
+  &:focus {
+    outline: 4px solid #888;
   }
 `
 

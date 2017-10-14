@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 import rem from 'utils/rem'
 import Post from 'components/blog/Post'
 import Tag from 'components/blog/Tag'
