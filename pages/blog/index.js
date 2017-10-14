@@ -1,7 +1,9 @@
 import styled from 'styled-components'
-import Post from 'components/blog/Post'
+
 
 import rem from 'utils/rem'
+import Post from 'components/blog/Post'
+import Tag from 'components/blog/Tag'
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -18,16 +20,21 @@ const Posts = styled.div`
 const Tags = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
+  padding-top: 1.6rem;
+`
+
+const TagWrapper = styled.span`
+  margin-bottom: ${rem(7)};
 `
 
 export default () => (
   <Wrapper>
     <Tags>
-      <span>#ruby</span>
-      <span>#js</span>
-      <span>#design</span>
+      <TagWrapper><Tag>ruby</Tag></TagWrapper>
+      <TagWrapper><Tag>js</Tag></TagWrapper>
+      <TagWrapper><Tag>design</Tag></TagWrapper>
     </Tags>
     <Posts><Post /></Posts>
   </Wrapper>
