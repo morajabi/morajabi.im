@@ -37,7 +37,7 @@ const Meta = styled.span`
   margin: 0;
   padding: 0;
   text-transform: uppercase;
-  font-size: ${rem(15)};
+  font-size: ${rem(14)};
   letter-spacing: ${rem(1)};
 `
 

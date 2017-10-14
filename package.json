@@ -6,9 +6,9 @@
   "author": "Mohammad <hi@morajabi.me> (http://morajabi.me/)",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server",
     "build": "next build",
-    "start": "next start"
+    "start": "node server"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.2.1",
