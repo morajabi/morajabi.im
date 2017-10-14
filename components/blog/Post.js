@@ -1,11 +1,16 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
 import rem from 'utils/rem'
 import { headerFont } from 'utils/fonts'
+import { mostlyBlack } from 'utils/colors'
 
-const Wrapper = styled.div`
+const Wrapper = styled.a`
+  display: block;
   padding: ${rem(20)} ${rem(30)};
+  text-decoration: none;
   background: transparent;
+  color: ${mostlyBlack};
   transition: background 100ms ease-out;
 
   &:hover {
@@ -29,11 +34,13 @@ const Meta = styled.span`
   letter-spacing: ${rem(1)};
 `
 
-const Post = props => (
-  <Wrapper>
-    <Title>How to config Webpack and Babel for React 16</Title>
-    <Meta>written 32 days ago</Meta>
-  </Wrapper>
+const Post = ({ url = '/' }) => (
+  <Link href={url}>
+    <Wrapper href={url}>
+      <Title>How to config Webpack and Babel for React 16</Title>
+      <Meta>written 32 days ago</Meta>
+    </Wrapper>
+  </Link>
 )
 
 export default Post
