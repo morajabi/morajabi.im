@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import rem from 'utils/rem'
 import { headerFont } from 'utils/fonts'
 import { mostlyBlack } from 'utils/colors'
+import { mobile } from 'utils/media'
 
 const Wrapper = styled.a`
   padding: ${rem(20)} ${rem(30)};
@@ -14,6 +15,11 @@ const Wrapper = styled.a`
   background: transparent;
   color: ${mostlyBlack};
   transition: background 100ms ease-out;
+
+  ${mobile(css`
+    font-size: ${rem(13)};
+    padding: ${rem(15)} ${rem(20)};
+  `)}
 
   &:hover,
   &:focus {
@@ -30,14 +36,14 @@ const Title = styled.h1`
   padding: 0;
   font-family: ${headerFont};
   font-weight: 700;
-  font-size: ${rem(25)};
+  font-size: 1.6em;
 `
 
 const Meta = styled.span`
   margin: 0;
   padding: 0;
   text-transform: uppercase;
-  font-size: ${rem(14)};
+  font-size: 0.9em;
   letter-spacing: ${rem(1)};
 `
 
