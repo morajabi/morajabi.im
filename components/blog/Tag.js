@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import rem from 'utils/rem'
+import { mostlyBlack } from 'utils/colors'
 
 const Tag = styled.a`
   display: inline-block;
@@ -8,6 +9,7 @@ const Tag = styled.a`
   letter-spacing: ${rem(0.9)};
   text-decoration: none;
   background: #f2f2f2;
+  color: ${mostlyBlack};
   cursor: pointer;
   transition: background 100ms ease-out;
 
