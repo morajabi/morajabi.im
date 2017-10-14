@@ -10,13 +10,14 @@ const Wrapper = styled.div`
   padding: ${rem(20)};
   box-sizing: border-box;
   display: grid;
-  grid-template-rows: ${rem(60)} auto;
+  grid-template-rows: auto;
   grid-template-columns: ${rem(200)} auto;
   grid-column-gap: ${rem(30)};
   grid-row-gap: ${rem(30)};
 
   ${mobile(css`
     grid-template-columns: auto;
+    grid-template-rows: ${rem(60)} auto;
   `)}
 `
 
@@ -26,7 +27,6 @@ const Posts = styled.div`
 const Side = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-end;
 
   ${mobile(css`
@@ -46,6 +46,7 @@ const AboutNote = styled.p`
 `
 
 const SideAboutNote = styled.div`
+  margin-top: ${rem(30)};
   text-align: right;
 
   ${mobile(css`
