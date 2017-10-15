@@ -1,14 +1,33 @@
+import React, { PureComponent } from 'react'
 import styled from 'styled-components'
+import { gql, graphql } from 'react-apollo'
 
-import Post from 'components/blog/Post'
+import PostsList from 'components/blog/PostsList/PostsList'
 
-const samplePosts = [{ title: 'Hi there' }]
-const PostsList = (posts = samplePosts) => (
-  <div>
-    {posts.map((post, i) => (
-      <Post key={i} url="/blog/post/my-post-slug" />
-    ))}
-  </div>
-)
+class PostsListContainer extends PureComponent {
+  render() {
+    const { data: { allPosts, loading, error } } = this.props
 
-export default PostsList
+    if (loading) {
+      return 'loading ...'
+    } else if (error) {
+      return `error: ${error}`
+    }
+
+    return (
+      <PostsList posts={allPosts} />
+    )
+  }
+}
+
+const GetAllPosts = gql`query GetAllPosts {
+  allPosts {
+    slug
+    title
+    createdAt
+  }
+}`
+
+export default graphql(
+  GetAllPosts,
+)(PostsListContainer)
