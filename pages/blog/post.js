@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import styled, { css } from 'styled-components'
 import { gql, graphql, compose } from 'react-apollo'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import Error from 'next/error'
 
 import rem from 'utils/rem'
 import withData from 'utils/withData'
@@ -151,7 +152,7 @@ const TextArea = styled.div`
   }
 `
 
-class PostPage extends PureComponent {
+class PostPageContent extends PureComponent {
   render() {
     const { data: { allPosts, loading, error } } = this.props
 
@@ -159,6 +160,8 @@ class PostPage extends PureComponent {
       return 'loading ...'
     } else if (error) {
       return `error: ${error}`
+    } else if (allPosts.length === 0) {
+      return <Error status={404} />
     }
 
     const { title, createdAt, content } = allPosts[0] || {}
@@ -182,8 +185,8 @@ class PostPage extends PureComponent {
   }
 }
 
-const GetPost = gql`query GetPost {
-  allPosts {
+const GetPost = gql`query GetPost($slug: String!) {
+  allPosts(filter: {slug: $slug}) {
     slug
     title
     createdAt
@@ -191,10 +194,24 @@ const GetPost = gql`query GetPost {
   }
 }`
 
-export default compose(
+const PostPageContentWithData = compose(
   withData,
 
-  graphql(
-    GetPost,
-  )
-)(PostPage)
+  graphql(GetPost, {
+    options: ({ slug = '' }) => ({
+      variables: { slug },
+      skip: !slug,
+    }),
+  })
+)(PostPageContent)
+
+export default class PostPage extends PureComponent {
+  static async getInitialProps({ query: { slug } }) {
+    return { slug }
+  }
+
+  render() {
+    return <PostPageContentWithData {...this.props} />
+  }
+}
+
