@@ -1,9 +1,10 @@
+import React, { Component } from 'react'
 import styled, { css } from 'styled-components'
 import withData from 'utils/withData'
 
 import rem from 'utils/rem'
 import { mobile } from 'utils/media'
-import Tags from 'components/blog/Tags'
+import { TagsContainer } from 'components/blog/Tags'
 import { PostsListContainer } from 'components/blog/PostsList'
 import AboutNote from 'components/blog/AboutNote'
 
@@ -52,19 +53,38 @@ const Footer = styled.footer`
   `)}
 `
 
-export default withData(() => (
-  <Wrapper>
-    <Side>
-      <Tags />
-      <SideAboutNote>
-        <AboutNote />
-      </SideAboutNote>
-    </Side>
+class Index extends Component {
+  state = {
+    activeTags: []
+  }
 
-    <PostsListContainer />
+  render() {
+    const { activeTags } = this.state
 
-    <Footer>
-      <AboutNote />
-    </Footer>
-  </Wrapper>
-))
+    return (
+      <Wrapper>
+        <Side>
+          <TagsContainer
+            activeTags={activeTags}
+            onTagsChange={this.tagsChanged}
+          />
+          <SideAboutNote>
+            <AboutNote />
+          </SideAboutNote>
+        </Side>
+
+        <PostsListContainer activeTags={activeTags} />
+
+        <Footer>
+          <AboutNote />
+        </Footer>
+      </Wrapper>
+    )
+  }
+
+  tagsChanged = newTags => {
+    this.setState({ activeTags: newTags })
+  }
+}
+
+export default withData(Index)
