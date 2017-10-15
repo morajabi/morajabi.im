@@ -24,6 +24,8 @@ class MyDocument extends Document {
         <Head>
           <title>My page</title>
           {this.props.styleTags}
+          <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
           <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
           <link href="https://fonts.googleapis.com/css?family=Miriam+Libre:700|Nunito:400,700" rel="stylesheet" />
         </Head>

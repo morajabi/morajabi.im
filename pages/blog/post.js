@@ -1,15 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import rem from 'utils/rem'
 import { headerFont, bodyFont } from 'utils/fonts'
 import { mostlyBlack } from 'utils/colors'
+import { mobile } from 'utils/media'
 
 const Wrapper = styled.div`
   height: auto;
   width: 100%;
   padding: ${rem(60)} 0;
   box-sizing: border-box;
-  background-image: url(/static/backgrounds/white-bg.jpg);
+  background-image: url(/static/backgrounds/sneakers-bg.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -19,6 +20,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   max-width: ${rem(720)};
+  padding: 0 ${rem(15)};
   margin: 0 auto;
 `
 
@@ -49,14 +51,18 @@ const Title = styled.div`
     ${rem(1)} ${rem(-1)} 0 white,
     ${rem(-1)} ${rem(1)} 0 white,
     ${rem(1)} ${rem(1)} 0 white;
-`
 
+  ${mobile(css`
+    font-size: ${rem(40)};
+  `)}
+`
 
 const CenteredRow = styled.div`
   text-align: center;
 `
 
 const edgePadding = 90;
+const smallEdgePadding = 25;
 
 const TextArea = styled.div`
   padding: ${rem(60)} 0 ${rem(80)} 0;
@@ -65,6 +71,11 @@ const TextArea = styled.div`
   line-height: 1.4;
   background: rgba(255, 255, 255, 1);
   box-shadow: 15px 15px 0 0 rgba(0, 0 ,0, 0.7);
+
+  ${mobile(css`
+    font-size: ${rem(18)};
+    padding: ${rem(20)} 0 ${rem(20)} 0;
+  `)}
 
   p,
   h1,
@@ -76,6 +87,11 @@ const TextArea = styled.div`
   pre {
     padding-right: ${rem(edgePadding)};
     padding-left: ${rem(edgePadding)};
+
+    ${mobile(css`
+    padding-right: ${rem(smallEdgePadding)};
+    padding-left: ${rem(smallEdgePadding)};
+    `)}
   }
 
   ul,
@@ -84,6 +100,8 @@ const TextArea = styled.div`
 
     li {
       margin-bottom: ${rem(4)};
+      padding-left: ${rem(35)};
+      text-indent: ${rem(-35)};
 
       &:before {
         content: '';
