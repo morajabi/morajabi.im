@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import moment from 'moment'
 import styled, { css } from 'styled-components'
 
 import rem from 'utils/rem'
@@ -39,7 +40,7 @@ const Title = styled.h1`
   font-size: 1.6em;
 `
 
-const Meta = styled.span`
+const Meta = styled.time`
   margin: 0;
   padding: 0;
   text-transform: uppercase;
@@ -47,11 +48,16 @@ const Meta = styled.span`
   letter-spacing: ${rem(1)};
 `
 
-const Post = ({ url = '/' }) => (
+const Post = ({ url = '/', title, createdAt }) => (
   <Link href={url}>
     <Wrapper href={url}>
-      <Title>How to config Webpack and Babel for React 16</Title>
-      <Meta>written 32 days ago</Meta>
+      <Title>{title}</Title>
+
+      {createdAt &&
+        <Meta dateTime={createdAt}>
+          written {moment(createdAt).fromNow()}
+        </Meta>
+      }
     </Wrapper>
   </Link>
 )
