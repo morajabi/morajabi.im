@@ -1,6 +1,10 @@
+import React, { PureComponent } from 'react'
 import styled, { css } from 'styled-components'
+import { gql, graphql, compose } from 'react-apollo'
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 
 import rem from 'utils/rem'
+import withData from 'utils/withData'
 import { headerFont, bodyFont } from 'utils/fonts'
 import { mostlyBlack } from 'utils/colors'
 import { mobile } from 'utils/media'
@@ -18,7 +22,7 @@ const Wrapper = styled.div`
   color: ${mostlyBlack};
 `
 
-const Container = styled.div`
+const Container = styled.article`
   max-width: ${rem(720)};
   padding: 0 ${rem(15)};
   margin: 0 auto;
@@ -36,8 +40,8 @@ const Meta = styled.span`
   color: rgba(255, 255, 255, 0.9);
 `
 
-
-const Title = styled.div`
+const Title = styled.h1`
+  margin: 0;
   padding: 0 ${rem(10)};
   margin-bottom: ${rem(50)};
   font-family: ${headerFont};
@@ -84,7 +88,8 @@ const TextArea = styled.div`
   h4,
   ul,
   ol,
-  pre {
+  pre,
+  blockquote {
     padding-right: ${rem(edgePadding)};
     padding-left: ${rem(edgePadding)};
 
@@ -120,9 +125,23 @@ const TextArea = styled.div`
   }
 
   blockquote {
-    padding: ${rem(1)} 0;
+    padding-top: ${rem(20)};
+    padding-bottom: ${rem(20)};
     margin: 0;
     background: #f4f4f4;
+
+    p {
+      padding-right: 0;
+      padding-left: 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   pre {
@@ -132,52 +151,50 @@ const TextArea = styled.div`
   }
 `
 
-export default () => (
-  <Wrapper>
-    <Container>
-      <CenteredRow><Meta>published 3 days ago, 3 mins</Meta></CenteredRow>
-      <Title>How to config React 16 with the latest Webpack</Title>
+class PostPage extends PureComponent {
+  render() {
+    const { data: { allPosts, loading, error } } = this.props
 
-      <TextArea>
-        <SamplePost />
-      </TextArea>
-    </Container>
-  </Wrapper>
-)
+    if (loading) {
+      return 'loading ...'
+    } else if (error) {
+      return `error: ${error}`
+    }
 
-function SamplePost() {
-  return (
-    <div class="article__body">
-    <p>Did you know that Chrome now ships with the option to run in headless mode? The feature is called <a href="https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md" target="_blank" rel="noreferrer noopener">Headless Chrome</a> and it makes it super easy for developers to configure a headless browser environment and run powerful automated tests.</p>
-<p>In this tutorial we are going to talk about its various features and run a couple of cool examples. Let's begin!</p>
-<h2>What is Headless Chrome</h2>
-<p>Headless Chrome allows us to run the browser from the command line without actually opening a Chrome window. The simulated browser environment has the same features as regular Chrome and can load any website or app we tell it to. </p>
-<p>On top of that, we have a large number of controls for interacting with the page. We can click on elements, simulate keyboard input, resize the browser, and a lot more. Using these controls we can write a variety of helpful scripts. </p>
-<p>Here are some examples of tasks usually done in a headless environment:</p>
-<ul><li>Generate screenshots and PDFs.</li>
-<li>Navigate between links and app states.</li>
-<li>Automate user input and form validation testing.</li>
-<li>Scrape data from websites and SPAs.</li>
-<li>Monitor performance.</li>
-</ul>
+    const { title, createdAt, content } = allPosts[0] || {}
 
-<p>Because Headless Chrome has a rather low-level API, it's preferred to access it via a library. For this tutorial we are going to use <a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="noreferrer noopener">Puppeteer</a>. The project is maintained by the Chrome DevTools team and has an excellent API that is super easy to work with.</p>
+    return (
+      <Wrapper>
+        <Container>
+          <CenteredRow>
+            <Meta>
+              published{' '}
+              {distanceInWordsToNow(createdAt, { addSuffix: true })}
+            </Meta>
+          </CenteredRow>
+          <Title>{title}</Title>
 
-<h2>Installation</h2>
-<p>To use Puppeteer you will need to have Node.js installed. You can find out how to do it <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="noreferrer noopener">here</a>. Note that all the examples in this tutorial rely heavily on the async/away syntax. It's available only in the more recent Node.js releases, so make sure you are running a version above v7.6.0. </p>
-<pre class="hljs css"><span class="hljs-selector-tag">node</span> <span class="hljs-selector-tag">--version</span>
-<span class="hljs-selector-tag">v8</span><span class="hljs-selector-class">.3</span><span class="hljs-selector-class">.0</span></pre>
-<blockquote>
-<p>If you are not familiar with the concept of async/await, we highly recommend reading our article <a href="https://tutorialzine.com/2017/07/javascript-async-await-explained" target="_blank" rel="noreferrer noopener">JavaScript Async Await Explained in 10 Minutes</a>.</p>
-</blockquote>
-<p>Go to your project's directory, initialize npm and install Puppeteer. You might need sudo access.</p>
-<pre class="hljs coffeescript"><span class="hljs-built_in">npm</span> init
-<span class="hljs-built_in">npm</span> i puppeteer</pre>
-<p>Installation may take a couple of minutes. This is because unlike most other frameworks for headless testing, Puppeteer automatically downloads a version of Chromium for you (about 100mb). That's actually a very nice feature since you won't have to setup and maintain a local instance of Chrome manually.</p>
-<p>Create a <em>index.js</em> file to work on and we are ready to go!</p>
-<h2>Screen Capture</h2>
-<p>Taking screenshots with puppeteer is very easy and there are plenty of options available for getting the exact results we need. We'll start off with a basic example and built upon that. </p>
-<p>Below we simply start a headless browser, open a page, and take a screenshot of all of its contents. </p>
-</div>
-  )
+          <TextArea dangerouslySetInnerHTML={{ __html: content }}>
+          </TextArea>
+        </Container>
+      </Wrapper>
+    )
+  }
 }
+
+const GetPost = gql`query GetPost {
+  allPosts {
+    slug
+    title
+    createdAt
+    content
+  }
+}`
+
+export default compose(
+  withData,
+
+  graphql(
+    GetPost,
+  )
+)(PostPage)

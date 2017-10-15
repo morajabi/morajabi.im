@@ -13,6 +13,7 @@
   "dependencies": {
     "apollo-client": "^1.9.3",
     "babel-plugin-styled-components": "^1.2.1",
+    "date-fns": "^1.29.0",
     "isomorphic-fetch": "^2.2.1",
     "moment": "^2.19.1",
     "next": "^4.0.0",
