@@ -4,7 +4,7 @@ import withData from 'utils/withData'
 import rem from 'utils/rem'
 import { mobile } from 'utils/media'
 import Tags from 'components/blog/Tags'
-import PostsList from 'components/blog/PostsList'
+import { PostsList } from 'components/blog/PostsList'
 import AboutNote from 'components/blog/AboutNote'
 
 const Wrapper = styled.div`
