@@ -5,7 +5,7 @@ import rem from 'utils/rem'
 const Wrapper = styled.p`
   margin: 0;
   font-size: ${rem(13)};
-  opacity: 0.5;
+  opacity: 0.8;
   transition: opacity 100ms ease-out;
 
   &:hover {

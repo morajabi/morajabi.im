@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import Head from 'next/head'
 import styled, { css } from 'styled-components'
 import { gql, graphql, compose } from 'react-apollo'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
@@ -168,6 +169,16 @@ class PostPageContent extends PureComponent {
 
     return (
       <Wrapper>
+        <Head>
+          <title>{title} - @morajabi's blog</title>
+          <meta name=”article.published” content={createdAt} />
+          <meta name=”pubdate” content={createdAt} />
+          <meta property="og:title" content={title} />
+          <meta property="og:image" content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"/>
+          <meta property="og:site_name" content="Mohammad Rajabifard's blog" />
+          {/* <meta property="og:description" content=""/> */}
+        </Head>
+
         <Container>
           <CenteredRow>
             <Meta>
@@ -185,6 +196,16 @@ class PostPageContent extends PureComponent {
   }
 }
 
+class PostPage extends PureComponent {
+  static async getInitialProps({ query: { slug } }) {
+    return { slug }
+  }
+
+  render() {
+    return <PostPageContent {...this.props} />
+  }
+}
+
 const GetPost = gql`query GetPost($slug: String!) {
   allPosts(filter: {slug: $slug}) {
     slug
@@ -194,24 +215,13 @@ const GetPost = gql`query GetPost($slug: String!) {
   }
 }`
 
-const PostPageContentWithData = compose(
+export default compose(
   withData,
 
   graphql(GetPost, {
-    options: ({ slug = '' }) => ({
+    options: ({ url: { query: { slug = '' }}}) => ({
       variables: { slug },
       skip: !slug,
     }),
   })
-)(PostPageContent)
-
-export default class PostPage extends PureComponent {
-  static async getInitialProps({ query: { slug } }) {
-    return { slug }
-  }
-
-  render() {
-    return <PostPageContentWithData {...this.props} />
-  }
-}
-
+)(PostPage)

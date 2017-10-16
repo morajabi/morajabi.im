@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Head from 'next/head'
 import styled, { css } from 'styled-components'
 import withData from 'utils/withData'
 
@@ -63,6 +64,14 @@ class Index extends Component {
 
     return (
       <Wrapper>
+        <Head>
+          <title>Blog - Mohammad Rajabifard</title>
+          <meta property="og:title" content={Blog - Mohammad Rajabifard} />
+          <meta property="og:image" content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"/>
+          <meta property="og:site_name" content="Mohammad Rajabifard's blog" />
+          <meta property="og:description" content="Hey! I write about JS, dev, design and photography"/>
+        </Head>
+
         <Side>
           <TagsContainer
             activeTags={activeTags}

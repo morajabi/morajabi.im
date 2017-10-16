@@ -20,9 +20,9 @@ class MyDocument extends Document {
 
   render () {
     return (
-      <html>
-        <Head>
-          <title>My page</title>
+      <html lang="en">
+      <Head>
+          <title>Mohammad Rajabifard</title>
           {this.props.styleTags}
           <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
