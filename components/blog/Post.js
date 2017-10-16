@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import moment from 'moment'
 import styled, { css } from 'styled-components'
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 
 import rem from 'utils/rem'
 import { headerFont } from 'utils/fonts'
@@ -48,14 +48,14 @@ const Meta = styled.time`
   letter-spacing: ${rem(1)};
 `
 
-const Post = ({ url = '/', title, createdAt }) => (
-  <Link href={url}>
-    <Wrapper href={url}>
+const Post = ({ slug, title, createdAt }) => (
+  <Link href={`/blog/${slug}`} as={`/blog/${slug}`}>
+    <Wrapper href={`/blog/${slug}`}>
       <Title>{title}</Title>
 
       {createdAt &&
         <Meta dateTime={createdAt}>
-          written {moment(createdAt).fromNow()}
+          written {distanceInWordsToNow(createdAt, { addSuffix: true })}
         </Meta>
       }
     </Wrapper>

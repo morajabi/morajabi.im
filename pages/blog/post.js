@@ -161,7 +161,7 @@ class PostPageContent extends PureComponent {
       return 'loading ...'
     } else if (error) {
       return `error: ${error}`
-    } else if (allPosts.length === 0) {
+    } else if (typeof allPosts !== 'undefined' && allPosts.length === 0) {
       return <Error status={404} />
     }
 

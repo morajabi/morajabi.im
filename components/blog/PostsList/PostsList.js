@@ -9,7 +9,7 @@ const PostsList = ({ posts = [{ title: 'Hi there', createdAt: '20130208T080910.1
         key={i}
         title={post.title}
         createdAt={post.createdAt}
-        url={`/blog/${post.slug}`}
+        slug={post.slug}
       />
     ))}
   </div>
