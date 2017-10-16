@@ -171,8 +171,8 @@ class PostPageContent extends PureComponent {
       <Wrapper>
         <Head>
           <title>{title} - @morajabi's blog</title>
-          <meta name=”article.published” content={createdAt} />
-          <meta name=”pubdate” content={createdAt} />
+          <meta name="article.published" content={createdAt} />
+          <meta name="pubdate" content={createdAt} />
           <meta property="og:title" content={title} />
           <meta property="og:image" content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"/>
           <meta property="og:site_name" content="Mohammad Rajabifard's blog" />
