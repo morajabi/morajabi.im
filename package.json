@@ -9,7 +9,7 @@
     "dev": "node server",
     "build": "next build",
     "start": "node server",
-    "start:pm2": "pm2 start npm --name \"morajabi.me\" -- run start --env production"
+    "start:pm2": "pm2 startOrReload ecosystem.config.js --env production"
   },
   "dependencies": {
     "apollo-client": "^1.9.3",
