@@ -165,7 +165,7 @@ class PostPageContent extends PureComponent {
       return <Error status={404} />
     }
 
-    const { title, createdAt, content } = allPosts[0] || {}
+    const { title, createdAt, content, description } = allPosts[0] || {}
 
     return (
       <Wrapper>
@@ -176,7 +176,13 @@ class PostPageContent extends PureComponent {
           <meta property="og:title" content={title} />
           <meta property="og:image" content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"/>
           <meta property="og:site_name" content="Mohammad Rajabifard's blog" />
-          {/* <meta property="og:description" content=""/> */}
+          <meta property="og:description" content={description} />
+
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@morajabi" />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
+          <meta name="twitter:image" content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg" />
         </Head>
 
         <Container>
@@ -212,6 +218,7 @@ const GetPost = gql`query GetPost($slug: String!) {
     title
     createdAt
     content
+    description
   }
 }`
 
