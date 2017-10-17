@@ -16,10 +16,12 @@ const Wrapper = styled.div`
   width: 100%;
   padding: ${rem(60)} 0;
   box-sizing: border-box;
-  background-image: url(/static/backgrounds/sneakers-bg.jpg);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(/static/backgrounds/sneakers-bg.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
   color: ${mostlyBlack};
 `
@@ -73,13 +75,14 @@ const smallEdgePadding = 25;
 const TextArea = styled.div`
   padding: ${rem(60)} 0 ${rem(80)} 0;
   font-family: ${bodyFont};
-  font-size: ${rem(19)};
-  line-height: 1.4;
+  font-size: ${rem(17)};
+  line-height: 1.6;
   background: rgba(255, 255, 255, 1);
   box-shadow: 15px 15px 0 0 rgba(0, 0 ,0, 0.7);
+  border-radius: 50px;
 
   ${mobile(css`
-    font-size: ${rem(18)};
+    font-size: ${rem(16)};
     padding: ${rem(20)} 0 ${rem(20)} 0;
   `)}
 
@@ -99,6 +102,10 @@ const TextArea = styled.div`
     padding-right: ${rem(smallEdgePadding)};
     padding-left: ${rem(smallEdgePadding)};
     `)}
+  }
+
+  code {
+    font-size: 1.1em;
   }
 
   ul,
@@ -149,7 +156,20 @@ const TextArea = styled.div`
   pre {
     padding-top: ${rem(5)};
     padding-bottom: ${rem(5)};
-    background: #f4f4f4;
+    background: #3b4154;
+    color: #f9f9f9;
+  }
+
+  a {
+    color: #d23838;
+
+    &:hover {
+      color: #822828;
+    }
+
+    &:visited {
+      color: #822828;
+    }
   }
 `
 

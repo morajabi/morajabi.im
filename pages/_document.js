@@ -38,7 +38,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
 
           <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
-          <link href="https://fonts.googleapis.com/css?family=Miriam+Libre:700|Nunito:400,700" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Miriam+Libre:700|Rubik:400,700" rel="stylesheet" />
 
           <script type="text/javascript" dangerouslySetInnerHTML={{ __html: heapScript }} />
         </Head>
