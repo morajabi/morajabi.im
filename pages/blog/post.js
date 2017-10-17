@@ -79,7 +79,7 @@ const TextArea = styled.div`
   line-height: 1.6;
   background: rgba(255, 255, 255, 1);
   box-shadow: 15px 15px 0 0 rgba(0, 0 ,0, 0.7);
-  border-radius: 50px;
+  border-radius: 40px;
 
   ${mobile(css`
     font-size: ${rem(16)};
