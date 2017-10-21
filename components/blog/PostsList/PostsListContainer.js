@@ -30,7 +30,7 @@ class PostsListContainer extends PureComponent {
 }
 
 const GetAllPosts = gql`query GetAllPosts($filter: PostFilter) {
-  allPosts(filter: $filter) {
+  allPosts(filter: $filter, orderBy: createdAt_DESC) {
     slug
     title
     createdAt
