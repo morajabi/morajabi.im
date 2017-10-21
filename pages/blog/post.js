@@ -171,6 +171,25 @@ const TextArea = styled.div`
       color: #822828;
     }
   }
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .twitter-tweet {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 30px;
+  }
 `
 
 class PostPageContent extends PureComponent {
