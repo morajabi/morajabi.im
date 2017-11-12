@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styled, { css } from 'styled-components'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 
@@ -49,17 +48,15 @@ const Meta = styled.time`
 `
 
 const Post = ({ slug, title, createdAt }) => (
-  <Link href={`/blog/${slug}`} as={`/blog/${slug}`}>
-    <Wrapper href={`/blog/${slug}`}>
-      <Title>{title}</Title>
+  <Wrapper href={`/blog/${slug}`}>
+    <Title>{title}</Title>
 
-      {createdAt &&
-        <Meta dateTime={createdAt}>
-          written {distanceInWordsToNow(createdAt, { addSuffix: true })}
-        </Meta>
-      }
-    </Wrapper>
-  </Link>
+    {createdAt &&
+      <Meta dateTime={createdAt}>
+        written {distanceInWordsToNow(createdAt, { addSuffix: true })}
+      </Meta>
+    }
+  </Wrapper>
 )
 
 export default Post
