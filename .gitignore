@@ -60,5 +60,6 @@ typings/
 dist
 
 .next
+out
 
 ecosystem.config.js
