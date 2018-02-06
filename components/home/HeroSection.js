@@ -6,7 +6,7 @@ export default () =>
     <Pic>
       <img
         src="/static/mohammad-rajabifard-profile.jpg"
-        alt="Mohammad Rajabifard b&w photo"
+        alt="Mohammad Rajabifard face b&w"
       />
     </Pic>
     <Texts>
@@ -18,7 +18,7 @@ export default () =>
         />
       </Hey>
       <Greeting><h1>I'm Mohammad Rajabifard</h1></Greeting>
-      <Slogan>Making ethusiast and JS lover</Slogan>
+      <Slogan>Making enthusiast and JS lover</Slogan>
     </Texts>
   </Wrapper>
 

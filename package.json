@@ -10,7 +10,6 @@
     "build": "next build",
     "start": "node server",
     "export": "yarn build && next export",
-    "start:pm2": "pm2 startOrReload ecosystem.config.js --env production"
   },
   "dependencies": {
     "apollo-client": "^1.9.3",

@@ -17,7 +17,7 @@ function create(initialState) {
     },
     dataIdFromObject: o => o.id,
   })
-https://api.graphcms.com/simple/v1/cj8rf4xll0j5n0122iyggb6j9
+
   return new ApolloClient({
     initialState,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
