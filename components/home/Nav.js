@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { darken } from 'polished'
+import { mobile } from '../../utils/media'
 
-export default () =>
+export default () => (
   <Wrapper>
     <SectionTitle>Wanna know me?</SectionTitle>
 
@@ -14,6 +15,7 @@ export default () =>
       </ListItem>
     </List>
   </Wrapper>
+)
 
 const Wrapper = styled.div`
   grid-column-start: 2;
@@ -30,6 +32,10 @@ const SectionTitle = styled.div`
   text-align: right;
 
   color: #595959;
+
+  ${mobile(css`
+    font-size: 25px;
+  `)};
 `
 
 const List = styled.nav`
@@ -66,7 +72,7 @@ const ListItem = styled.a`
     right: 0;
     top: 15px;
 
-    background: #A3A3A3;
+    background: #a3a3a3;
   }
 
   &:hover {
@@ -81,5 +87,5 @@ const Desc = styled.span`
   font-size: 15px;
   font-weight: normal;
   font-style: italic;
-  color: #9C9C9C;
+  color: #9c9c9c;
 `

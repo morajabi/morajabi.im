@@ -11,6 +11,11 @@
     "start": "node server",
     "export": "yarn build && next export"
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
   "dependencies": {
     "apollo-client": "^1.9.3",
     "babel-plugin-styled-components": "^1.2.1",
@@ -30,6 +35,7 @@
     "styled-components": "^2.2.1"
   },
   "devDependencies": {
-    "babel-plugin-module-resolver": "^2.7.1"
+    "babel-plugin-module-resolver": "^2.7.1",
+    "prettier": "^1.10.2"
   }
 }
