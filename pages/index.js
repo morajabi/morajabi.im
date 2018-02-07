@@ -16,7 +16,9 @@ export default () =>
 
 const PageWrapper = styled.div`
   display: grid;
-  grid-template-columns: auto 975px auto;
+  grid-template-columns: auto minmax(auto, 975px) auto;
+  padding: 0 20px;
+  box-sizing: content-box;
 
   * {
     font-family: 'Playfair Display', serif;
