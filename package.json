@@ -9,7 +9,7 @@
     "dev": "node server",
     "build": "next build",
     "start": "node server",
-    "export": "yarn build && next export",
+    "export": "yarn build && next export"
   },
   "dependencies": {
     "apollo-client": "^1.9.3",
