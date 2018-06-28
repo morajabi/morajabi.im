@@ -14,6 +14,9 @@ export default class PostHeader extends Component {
 
   render() {
     const { title, description, publishedAt, heroSrc } = this.props
+    const image = `https://morajabi.me${
+      heroSrc ? heroSrc : `/static/Mohammad-Rajabifard-portrait.jpg`
+    }`
 
     return (
       <Fragment>
@@ -22,10 +25,7 @@ export default class PostHeader extends Component {
           <meta name="article.published" content={publishedAt} />
           <meta name="pubdate" content={publishedAt} />
           <meta property="og:title" content={title} />
-          <meta
-            property="og:image"
-            content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"
-          />
+          <meta property="og:image" content={image} />
           <meta property="og:site_name" content="Mohammad Rajabifard's blog" />
           <meta property="og:description" content={description} />
 
@@ -33,10 +33,7 @@ export default class PostHeader extends Component {
           <meta name="twitter:site" content="@morajabi" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
-          <meta
-            name="twitter:image"
-            content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"
-          />
+          <meta name="twitter:image" content={image} />
         </Head>
 
         {heroSrc && <Hero src={heroSrc} />}
