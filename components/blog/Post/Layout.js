@@ -48,8 +48,9 @@ const Layout = ({ children, router: { route } }) => {
           <Hr />
           <Paragraph>
             I really hope you enjoyed reading this post! I'm living on{' '}
-            <A href="https://twitter.com/morajabi">Twitter</A> and my direct
-            message is open. Follow me or feel free to reach out in DM!
+            <A href="https://twitter.com/morajabi">Twitter</A>. Oh, and my
+            direct message is open, too. Follow me or feel free to reach out via
+            DM!
           </Paragraph>
           <Paragraph>— Written by Mo! &nbsp;</Paragraph>
 
@@ -99,6 +100,10 @@ const Wrapper = styled.div`
     margin-top: 32px;
     width: 100%;
   }
+
+  ${mobile(css`
+    font-size: 18px;
+  `)};
 `
 
 const Content = styled.div`
@@ -115,13 +120,19 @@ const Blockquote = styled.blockquote`
 
   font-style: italic;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 1.4em;
   color: #666;
-  font-family: 'IBM Plex Sans Condensed';
+  font-family: 'IBM Plex Sans Condensed', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
 
   + p {
     margin-top: 55px;
   }
+
+  ${mobile(css`
+    padding-left: 26px;
+  `)};
 `
 
 const InlineCode = styled.code`
@@ -161,7 +172,7 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter).attrs({
 })`
   line-height: 1.45;
   font-family: 'dm', monospace;
-  font-size: 19px;
+  font-size: 0.95em;
 
   margin-left: -20px;
   margin-right: -20px;
@@ -172,6 +183,11 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter).attrs({
   code {
     font-family: 'dm', monospace;
   }
+
+  ${mobile(css`
+    margin-left: -8px;
+    margin-right: -8px;
+  `)};
 `
 
 const listStyles = css`
@@ -248,6 +264,10 @@ export const Paragraph = styled.p`
       margin-top: 21px;
     `)};
   }
+
+  ${mobile(css`
+    margin-top: 30px;
+  `)};
 `
 
 export const H4 = styled.h4`
@@ -291,7 +311,7 @@ export const H3 = styled.h3`
   margin-bottom: 8px;
 
   ${mobile(css`
-    font-size: 30px;
+    font-size: 28px;
 
     margin-top: 48px;
     margin-bottom: 24px;
@@ -348,4 +368,10 @@ export const WideImage = styled.img`
   max-width: calc(100% + 100px);
   margin-left: -50px;
   margin-right: -50px;
+
+  ${mobile(css`
+    max-width: calc(100% + 36px);
+    margin-left: -18px;
+    margin-right: -18px;
+  `)};
 `

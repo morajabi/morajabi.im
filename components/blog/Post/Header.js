@@ -3,6 +3,7 @@ import { string, node } from 'prop-types'
 import { Component, Fragment } from 'react'
 import styled, { css } from 'styled-components'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import { mobile } from '../../../utils/media'
 
 export default class PostHeader extends Component {
   static propTypes = {
@@ -63,6 +64,16 @@ const Hero = styled.img`
 
   object-fit: cover;
   object-position: center;
+
+  ${mobile(css`
+    width: calc(100% + 36px);
+
+    margin-left: -18px;
+    margin-right: -18px;
+    border-radius: 0;
+
+    margin-bottom: 40px;
+  `)};
 `
 
 const Time = styled.time`
@@ -87,4 +98,8 @@ const Title = styled.h1`
   font-weight: bold;
   color: #222;
   letter-spacing: -0.2px;
+
+  ${mobile(css`
+    font-size: 28px;
+  `)};
 `

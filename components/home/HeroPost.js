@@ -1,13 +1,14 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Link from 'next/link'
 
 // Local
 import Container from '../shared/Container'
+import { mobile } from '../../utils/media'
 
 const HeroPost = ({ title, slug, heroSrc }) => (
   <Container wide>
     <article>
-      <Link href={`/blog/${slug}`} passHref preload>
+      <Link href={`/blog/${slug}`} passHref prefetch>
         <Wrapper heroSrc={heroSrc}>
           <Tag>Latest</Tag>
           <Title>{title}</Title>
@@ -24,7 +25,7 @@ export default HeroPost
 
 // Styles
 const Wrapper = styled.a`
-  width: 800px;
+  max-width: 800px;
   height: 350px;
 
   border-radius: ${p => p.theme.radiusBig}px;
@@ -54,6 +55,12 @@ const Wrapper = styled.a`
       ),
       url(${p => p.heroSrc});
   }
+
+  ${mobile(css`
+    max-width: calc(100% + 36px);
+    margin-left: -18px;
+    margin-right: -18px;
+  `)};
 `
 
 const Tag = styled.div`

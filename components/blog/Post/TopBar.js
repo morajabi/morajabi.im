@@ -7,7 +7,7 @@ import ZigZag from '../../../vectors/ZigZag'
 const TopBar = () => (
   <Wrapper>
     <Stack>
-      <Link href="/blog" preload>
+      <Link href="/blog" prefetch>
         <a>
           <Photo src="/static/Mo.jpg" />
         </a>
