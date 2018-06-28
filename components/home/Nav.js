@@ -1,12 +1,16 @@
 import styled, { css } from 'styled-components'
 import { darken } from 'polished'
 import { mobile } from '../../utils/media'
+import Link from 'next/link'
 
 export default () => (
   <Wrapper>
     <SectionTitle>Wanna know me?</SectionTitle>
 
     <List>
+      <Link href="/blog" passHref>
+        <ListItem>Blog</ListItem>
+      </Link>
       <ListItem href="https://angel.co/morajabi">Resume</ListItem>
       <ListItem href="https://github.com/morajabi">Github</ListItem>
       <ListItem href="https://twitter.com/morajabi">

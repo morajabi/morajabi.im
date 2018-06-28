@@ -1,99 +1,49 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import Head from 'next/head'
-import styled, { css } from 'styled-components'
-import withData from 'utils/withData'
 
-import rem from 'utils/rem'
-import { mobile } from 'utils/media'
-import { TagsContainer } from 'components/blog/Tags'
-import { PostsListContainer } from 'components/blog/PostsList'
-import AboutNote from 'components/blog/AboutNote'
+// Local
+import Header from '../../components/blog/Header'
+import HeroPost from '../../components/home/HeroPost'
 
-const Wrapper = styled.div`
-  height: 100vh;
-  padding: ${rem(20)};
-  box-sizing: border-box;
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: ${rem(200)} auto;
-  grid-column-gap: ${rem(30)};
-  grid-row-gap: ${rem(30)};
+// Data
+import posts from '../../data/posts.json'
+import RecentPosts from '../../components/blog/RecentPosts'
 
-  ${mobile(css`
-    grid-template-columns: auto;
-    grid-template-rows: ${rem(60)} auto;
-  `)}
-`
-
-const Side = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  ${mobile(css`
-    align-items: center;
-  `)}
-`
-
-const SideAboutNote = styled.div`
-  margin-top: ${rem(30)};
-  text-align: right;
-
-  ${mobile(css`
-    display: none;
-  `)}
-`
-
-const Footer = styled.footer`
-  display: none;
-  padding: ${rem(30)} 0;
-  text-align: center;
-
-  ${mobile(css`
-    display: block;
-  `)}
-`
-
-class Index extends Component {
-  state = {
-    activeTags: []
-  }
-
+export default class Index extends Component {
   render() {
-    const { activeTags } = this.state
+    const sortedSlugs = Object.keys(posts).sort(
+      (a, b) => new Date(posts[b].publishedAt) - new Date(posts[a].publishedAt)
+    )
+    const sortedPosts = sortedSlugs.map(slug => ({ slug, ...posts[slug] }))
+    const latestPost = sortedPosts[0]
+    // Exclude latest post
+    const recentPosts = sortedPosts.slice(1, 4)
 
     return (
-      <Wrapper>
+      <>
         <Head>
-          <title>Blog - Mohammad Rajabifard</title>
-          <meta property="og:title" content="Blog - Mohammad Rajabifard" />
-          <meta property="og:image" content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"/>
-          <meta property="og:site_name" content="Mohammad Rajabifard's blog" />
-          <meta property="og:description" content="Hey! I write about JS, dev, design and photography"/>
+          <title>Mo Rajabi - blog about makers and creatives life</title>
+          <meta
+            property="og:image"
+            content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"
+          />
+          <meta property="og:site_name" content="Mohammad Rajabi's blog" />
+          <meta
+            property="og:description"
+            content="Mohammad Rajabifard writes for creators of any kind, developers, photographers, like, creatives! Also, about my life journey."
+          />
         </Head>
 
-        <Side>
-          <TagsContainer
-            activeTags={activeTags}
-            onTagsChange={this.tagsChanged}
-          />
-          <SideAboutNote>
-            <AboutNote />
-          </SideAboutNote>
-        </Side>
+        <Header />
 
-        <PostsListContainer activeTags={activeTags} />
+        <HeroPost
+          title={latestPost.title}
+          heroSrc={latestPost.heroSrc}
+          slug={latestPost.slug}
+        />
 
-        <Footer>
-          <AboutNote />
-        </Footer>
-      </Wrapper>
+        {recentPosts.length > 0 && <RecentPosts posts={recentPosts} />}
+      </>
     )
   }
-
-  tagsChanged = newTags => {
-    this.setState({ activeTags: newTags })
-  }
 }
-
-export default withData(Index)

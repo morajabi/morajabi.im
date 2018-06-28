@@ -1,10 +1,15 @@
-module.exports = {
-  exportPathMap: function() {
+const withMDX = require('@zeit/next-mdx')({
+  options: {
+    mdPlugins: [],
+    hastPlugins: [],
+  },
+})
+
+module.exports = withMDX({
+  pageExtensions: ['js', 'jsx', 'mdx'],
+  exportPathMap(defaultExportMap) {
     return {
-      '/': { page: '/' },
-      '/blog': { page: '/blog' },
-      '/blog/fixmoji-icon-with-love': { page: '/blog/post', query: { slug: 'fixmoji-icon-with-love' } },
-      '/blog/custom-alias-imports-in-js-w-babel': { page: '/blog/post', query: { slug: 'custom-alias-imports-in-js-w-babel' } },
+      ...defaultExportMap,
     }
-  }
-}
+  },
+})

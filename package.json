@@ -1,14 +1,14 @@
 {
   "name": "morajabi.me",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "repository": "git@github.com:morajabi/morajabi.me.git",
-  "author": "Mohammad <hi@morajabi.me> (http://morajabi.me/)",
+  "author": "Mohammad <mo@there.pm> (https://morajabi.me/)",
   "license": "MIT",
   "scripts": {
-    "dev": "node server",
+    "dev": "next dev",
     "build": "next build",
-    "start": "node server",
+    "start": "next start",
     "export": "yarn build && next export"
   },
   "prettier": {
@@ -17,25 +17,23 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "apollo-client": "^1.9.3",
-    "babel-plugin-styled-components": "^1.2.1",
-    "compression": "^1.7.1",
+    "@mdx-js/tag": "^0.11.0",
     "date-fns": "^1.29.0",
-    "express": "^4.16.2",
-    "helmet": "^3.9.0",
-    "isomorphic-fetch": "^2.2.1",
-    "moment": "^2.19.1",
-    "morgan": "^1.9.0",
-    "next": "^4.0.0",
+    "next": "^6.0.3",
+    "nprogress": "^0.2.0",
     "polished": "^1.9.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-apollo": "^1.4.16",
-    "react-dom": "^16.0.0",
-    "styled-components": "^2.2.1"
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-syntax-highlighter": "^7.0.4",
+    "styled-components": "^3.3.3"
   },
   "devDependencies": {
+    "@mdx-js/loader": "^0.12.0",
+    "@mdx-js/mdx": "^0.12.0",
+    "@zeit/next-mdx": "^1.1.0",
     "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-styled-components": "^1.2.1",
     "prettier": "^1.10.2"
   }
 }

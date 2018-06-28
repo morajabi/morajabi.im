@@ -1,14 +1,9 @@
 {
-  "presets": [
-    "next/babel"
-  ],
+  "presets": ["next/babel"],
   "plugins": [
-    ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ],
-    ["module-resolver", {
-      "alias": {
-        "components": "./components",
-        "utils": "./utils"
-      }
-    }]
+    [
+      "styled-components",
+      { "ssr": true, "displayName": true, "preprocess": false }
+    ]
   ]
 }

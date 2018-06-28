@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 
-import HeroSection from 'components/home/HeroSection'
-import Nav from 'components/home/Nav'
+import HeroSection from '../components/home/HeroSection'
+import Nav from '../components/home/Nav'
 
 export default () => (
   <PageWrapper>
@@ -25,6 +25,6 @@ const PageWrapper = styled.div`
   box-sizing: content-box;
 
   * {
-    font-family: 'Playfair Display', serif;
+    font-family: 'IBM Plex Serif', serif;
   }
 `
