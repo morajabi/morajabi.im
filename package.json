@@ -1,9 +1,9 @@
 {
-  "name": "morajabi.me",
+  "name": "morajabi.im",
   "version": "2.0.1",
   "main": "index.js",
-  "repository": "git@github.com:morajabi/morajabi.me.git",
-  "author": "Mohammad <mo@there.pm> (https://morajabi.me/)",
+  "repository": "git@github.com:morajabi/morajabi.im.git",
+  "author": "Mohammad <mo@there.pm> (https://morajabi.im/)",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",

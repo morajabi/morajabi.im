@@ -18,7 +18,7 @@ import posts from '../../../data/posts.json'
 
 const Layout = ({ children, router: { route } }) => {
   const slug = route.replace('/blog/', '').replace('/')
-  const url = `https://morajabi.me/blog/${slug}`
+  const url = `https://morajabi.im/blog/${slug}`
   const { title, publishedAt, heroSrc } = posts[slug]
 
   return (

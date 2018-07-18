@@ -25,7 +25,7 @@ export default class Index extends Component {
           <title>Mo Rajabi - blog about makers and creatives life</title>
           <meta
             property="og:image"
-            content="https://morajabi.me/static/Mohammad-Rajabifard-portrait.jpg"
+            content="https://morajabi.im/static/Mohammad-Rajabifard-portrait.jpg"
           />
           <meta property="og:site_name" content="Mohammad Rajabi's blog" />
           <meta
