@@ -14,7 +14,7 @@ export default class PostHeader extends Component {
   }
 
   render() {
-    const { title, desc, desc, publishedAt, heroSrc } = this.props
+    const { title, desc, publishedAt, heroSrc } = this.props
     const image = `https://morajabi.im${
       heroSrc ? heroSrc : `/static/Mohammad-Rajabifard-portrait.jpg`
     }`
