@@ -19,7 +19,7 @@ import posts from '../../../data/posts.json'
 const Layout = ({ children, router: { route } }) => {
   const slug = route.replace('/blog/', '').replace('/')
   const url = `https://morajabi.im/blog/${slug}`
-  const { title, publishedAt, heroSrc } = posts[slug]
+  const { title, desc = '', publishedAt, heroSrc } = posts[slug]
 
   return (
     <MDXProvider
@@ -41,7 +41,12 @@ const Layout = ({ children, router: { route } }) => {
       <Wrapper>
         <TopBar />
         <Container>
-          <Header title={title} publishedAt={publishedAt} heroSrc={heroSrc} />
+          <Header
+            title={title}
+            desc={desc}
+            publishedAt={publishedAt}
+            heroSrc={heroSrc}
+          />
 
           <Content>{children}</Content>
 
