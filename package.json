@@ -7,14 +7,19 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "yarn build && next export"
+    "build": "next build && next export",
+    "start": "next start"
   },
   "prettier": {
     "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
+  },
+  "now": {
+    "alias": "morajabi.im",
+    "type": "static",
+    "static": { "public": "out" },
+    "files": ["out"]
   },
   "dependencies": {
     "@mdx-js/tag": "^0.11.0",

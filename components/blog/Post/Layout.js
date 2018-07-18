@@ -278,7 +278,7 @@ export const H4 = styled.h4`
   color: #334;
   letter-spacing: -0.015em;
 
-  margin-top: 30px;
+  margin-top: 32px;
   margin-bottom: 8px;
 
   ${mobile(css`
@@ -300,14 +300,14 @@ export const H4 = styled.h4`
 
 export const H3 = styled.h3`
   font-family: var(--heading-font);
-  font-size: 34px;
+  font-size: 35px;
   line-height: 1.23;
   font-weight: bold;
   color: #334;
 
   letter-spacing: -0.02em;
 
-  margin-top: 56px;
+  margin-top: 62px;
   margin-bottom: 8px;
 
   ${mobile(css`
@@ -369,9 +369,12 @@ export const WideImage = styled.img`
   margin-left: -50px;
   margin-right: -50px;
 
+  margin-top: 28px;
+
   ${mobile(css`
     max-width: calc(100% + 36px);
     margin-left: -18px;
     margin-right: -18px;
+    margin-top: 20px;
   `)};
 `
