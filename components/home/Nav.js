@@ -12,7 +12,7 @@ export default () => (
         <ListItem>Blog</ListItem>
       </Link>
       <ListItem href="https://angel.co/morajabi">Resume</ListItem>
-      <ListItem href="https://github.com/morajabi">Github</ListItem>
+      <ListItem href="https://github.com/morajabi">GitHub</ListItem>
       <ListItem href="https://twitter.com/morajabi">
         Twitter
         <Desc>Feel free to DM me!</Desc>
